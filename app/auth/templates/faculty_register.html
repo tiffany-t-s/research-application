@@ -1,0 +1,19 @@
+{% extends "faculty_base.html" %}
+{% import 'bootstrap_wtf.html' as wtf %}
+
+{% block content %}
+    <h1>Register</h1>
+
+ <form action="" method="POST">
+    {{ form.hidden_tag()}}
+
+        <div style="max-width: 600px;">{{wtf.form_field(form.username)}}</div>
+        <div style="max-width: 600px;">{{wtf.form_field(form.password)}}</div>
+        <div style="max-width: 600px;">{{wtf.form_field(form.password2)}}</div>
+        {{wtf.form_field(form.submit)}}
+
+    </form>
+
+   
+
+{% endblock %}
