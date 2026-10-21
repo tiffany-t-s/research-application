@@ -34,13 +34,22 @@ def add_faculty(*args, **kwargs):
     query = sqla.select(Faculty)
     if db.session.scalars(query).first() is None:
         faculty_members = [
-        {'firstname':'John','lastname':'Doe', 'email':'john.doe@example.com', 'is_verified': False},
-          {'firstname':'Jane','lastname':'Smith','email':'jane.smith@example.com', 'is_verified': False},
+        {'firstname':'John','lastname':'Doe', 'email':'john.doe@example.com', 'is_verified': True},
+          {'firstname':'Jane','lastname':'Smith','email':'jane.smith@example.com', 'is_verified': True},
           {'firstname':'Jim','lastname':'Brown','email':'jim.brown@example.com', 'is_verified': False},
-          {'firstname':'Harry','lastname':'Davis','email':'harry.davis@example.com', 'is_verified': False}, 
+          {'firstname':'Harry','lastname':'Davis','email':'harry.davis@example.com', 'is_verified': True}, 
           {'firstname':'Lisa','lastname':'Wilson','email':'lisa.wilson@example.com', 'is_verified': False}  ]
         for m in faculty_members:
             db.session.add(Faculty(firstname = m['firstname'], lastname = m['lastname'], email = m['email'], is_verified = m['is_verified']))
+        john = db.session.scalars(sqla.select(Faculty).where(Faculty.email == 'john.doe@example.com')).first()
+        john.username = 'jdoe'
+        john.set_password('123')
+        jane = db.session.scalars(sqla.select(Faculty).where(Faculty.email == 'jane.smith@example.com')).first()
+        jane.username = 'jsmith'
+        jane.set_password('123')
+        harry = db.session.scalars(sqla.select(Faculty).where(Faculty.email == 'harry.davis@example.com')).first()
+        harry.username = 'hdavis'
+        harry.set_password('123')
         db.session.commit()
 
 

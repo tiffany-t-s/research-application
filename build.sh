@@ -1,3 +1,3 @@
 docker build -t softengdemo . 
-docker tag softengdemo arslanay/softengdemo
-docker push arslanay/softengdemo
+docker tag softengdemo ttsemexant/softengdemo
+docker push ttsemexant/softengdemo

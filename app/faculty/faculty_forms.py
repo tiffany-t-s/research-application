@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, IntegerField, FloatField,BooleanField, SelectField, DateField, widgets
+from wtforms import StringField, TextAreaField, SubmitField, IntegerField, FloatField,BooleanField, SelectField, DateField, widgets
 from wtforms.validators import  ValidationError, DataRequired
 from wtforms_sqlalchemy.fields import QuerySelectMultipleField, QuerySelectField
 from datetime import datetime
@@ -15,7 +15,7 @@ from wtforms.validators import Length
 class ResearchPositionForm(FlaskForm):
     # Basic fields
     title = StringField("Title", validators=[DataRequired()])
-    description = StringField("Description", validators=[DataRequired()])
+    description = TextAreaField("Description", validators=[DataRequired()])
 
     start_date = DateField("Start Date (YYYY-MM-DD)", format="%Y-%m-%d", validators=[DataRequired()])
     end_date = DateField("End Date (YYYY-MM-DD)", format="%Y-%m-%d", validators=[DataRequired()])

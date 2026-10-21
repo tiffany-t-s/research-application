@@ -1,11 +1,6 @@
 {% extends "faculty_base.html" %}
 {% block content %}
 
-<div class="wpi-header" style="border-bottom: 3px solid #b31e2d;">
-    <img src="{{ url_for('static', filename='img/wpi_logo.png') }}"
-         alt="WPI Logo" style="height: 70px; margin: 10px;">
-</div>
-
 <div class="container mt-4" style="max-width: 600px;">
 
     {% if editing %}
@@ -26,7 +21,7 @@
         <!-- Description -->
         <div class="mb-3">
             <label class="form-label">Description</label>
-            {{ form.description(class="form-control rounded-3", rows="4") }}
+            {{ form.description(class="form-control rounded-3", rows="5") }}
         </div>
 
         <!-- Start Date -->
